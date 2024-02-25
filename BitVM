@@ -1,0 +1,37 @@
+# Pseudo-code for a simplified BitVM implementation
+
+# Define a function to commit to a binary circuit in a Taproot address
+def commit_to_circuit(binary_circuit):
+    # Generate Taproot address with leaf scripts for each logic gate in the circuit
+    taproot_address = generate_taproot_address(binary_circuit)
+    return taproot_address
+
+# Define a function for the prover to set inputs and trigger state changes in the circuit
+def set_inputs_and_trigger_state_changes(taproot_address, inputs):
+    # Exchange off-chain data to set inputs and trigger state changes
+    exchange_off_chain_data(taproot_address, inputs)
+    return
+
+# Define a function for the verifier to challenge the prover's claim and verify computations
+def challenge_and_verify(taproot_address, claim):
+    # Perform challenge-response protocol to verify the claim
+    if verify_claim(taproot_address, claim):
+        return "Claim is valid"
+    else:
+        return "Claim is invalid"
+
+# Main program
+if __name__ == "__main__":
+    # Compile a binary circuit and commit to it in a Taproot address
+    binary_circuit = compile_binary_circuit()
+    taproot_address = commit_to_circuit(binary_circuit)
+    
+    # Prover sets inputs and triggers state changes in the circuit
+    inputs = set_inputs()
+    set_inputs_and_trigger_state_changes(taproot_address, inputs)
+    
+    # Verifier challenges the prover's claim and verifies computations
+    claim = make_claim()
+    result = challenge_and_verify(taproot_address, claim)
+    
+    print(result)
